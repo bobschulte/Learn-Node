@@ -63,11 +63,38 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+function autocomplete(address, lat, lng) {
+    if (!address) return; // skip this function from running if no input on the page
+    var dropdown = new google.maps.places.Autocomplete(address);
+
+    dropdown.addListener('place_changed', function () {
+        var place = dropdown.getPlace();
+        lat.value = place.geometry.location.lat();
+        lng.value = place.geometry.location.lng();
+    });
+    // if someone hits enter on the address field, don't submit the form
+    address.on('keydown', function (e) {
+        if (e.keyCode === 13) e.preventDefault();
+    });
+}
+
+exports.default = autocomplete;
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97,21 +124,29 @@ exports.$ = $;
 exports.$$ = $$;
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Node Sass does not yet support your current environment: OS X 64-bit with Unsupported runtime (88)\nFor more information on which environments are supported please see:\nhttps://github.com/sass/node-sass/releases/tag/v4.14.1\n    at module.exports (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/node-sass/lib/binding.js:13:13)\n    at Object.<anonymous> (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/node-sass/lib/index.js:14:35)\n    at Module._compile (node:internal/modules/cjs/loader:1108:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)\n    at Module.load (node:internal/modules/cjs/loader:973:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:813:14)\n    at Module.require (node:internal/modules/cjs/loader:997:19)\n    at require (node:internal/modules/cjs/helpers:92:18)\n    at Object.<anonymous> (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/sass-loader/lib/loader.js:3:14)\n    at Module._compile (node:internal/modules/cjs/loader:1108:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)\n    at Module.load (node:internal/modules/cjs/loader:973:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:813:14)\n    at Module.require (node:internal/modules/cjs/loader:997:19)\n    at require (node:internal/modules/cjs/helpers:92:18)\n    at loadLoader (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/loadLoader.js:18:17)\n    at iteratePitchingLoaders (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:176:18\n    at loadLoader (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/loadLoader.js:47:3)\n    at iteratePitchingLoaders (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:176:18\n    at loadLoader (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/loadLoader.js:47:3)\n    at iteratePitchingLoaders (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:365:2)\n    at NormalModule.doBuild (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/NormalModule.js:129:2)\n    at NormalModule.build (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/NormalModule.js:180:15)\n    at Compilation.buildModule (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/Compilation.js:142:10)\n    at /Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/Compilation.js:424:9\n    at /Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/NormalModule.js:141:35\n    at /Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:172:11\n    at loadLoader (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/loadLoader.js:32:11)\n    at iteratePitchingLoaders (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:176:18\n    at loadLoader (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/loadLoader.js:47:3)\n    at iteratePitchingLoaders (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:176:18\n    at loadLoader (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/loadLoader.js:47:3)\n    at iteratePitchingLoaders (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/loader-runner/lib/LoaderRunner.js:365:2)\n    at NormalModule.doBuild (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/NormalModule.js:129:2)\n    at NormalModule.build (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/NormalModule.js:180:15)\n    at Compilation.buildModule (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/Compilation.js:142:10)\n    at /Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/Compilation.js:424:9\n    at /Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/NormalModuleFactory.js:242:4\n    at /Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/NormalModuleFactory.js:93:13\n    at /Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/tapable/lib/Tapable.js:268:11\n    at NormalModuleFactory.<anonymous> (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/tapable/lib/Tapable.js:272:13)\n    at onDoneResolving (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/NormalModuleFactory.js:68:11)\n    at onDoneResolving (/Users/robertschulte/Desktop/Code/learn-node/repository/dang-thats-delicious/node_modules/webpack/lib/NormalModuleFactory.js:189:6)\n    at processTicksAndRejections (node:internal/process/task_queues:76:11)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(1);
+__webpack_require__(2);
 
-var _bling = __webpack_require__(0);
+var _bling = __webpack_require__(1);
+
+var _autocomplete = __webpack_require__(0);
+
+var _autocomplete2 = _interopRequireDefault(_autocomplete);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _autocomplete2.default)((0, _bling.$)('#address'), (0, _bling.$)('#lat'), (0, _bling.$)('#lng'));
 
 /***/ })
 /******/ ]);
